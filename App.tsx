@@ -14,12 +14,14 @@ import {
 
 import CreditCard from "./assets/graphic.png";
 import { AntDesign, FontAwesome } from "@expo/vector-icons";
+import { StatusBar } from "react-native";
 
 export default function App() {
   const [isEN, setIsEN] = useState(true);
 
   return (
     <NativeBaseProvider theme={theme}>
+      <StatusBar animated barStyle={"light-content"} />
       <VStack
         px={6}
         w="100%"
@@ -33,12 +35,12 @@ export default function App() {
             Valt.
           </Heading>
           <Button
-            h="100%"
             bg="white"
             rounded={"2xl"}
             _pressed={{
               bg: "gray.100",
             }}
+            boxSize={12}
             onPress={() => setIsEN(!isEN)}
           >
             <Text color={"black"} fontWeight={600}>
