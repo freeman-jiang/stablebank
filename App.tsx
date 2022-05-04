@@ -1,87 +1,111 @@
-import React from "react";
+import React, { useState } from "react";
+import { theme } from "./theme";
 import {
   Text,
-  Link,
   HStack,
   Center,
   Heading,
-  Switch,
-  useColorMode,
   NativeBaseProvider,
-  extendTheme,
   VStack,
-  Box,
+  Image,
+  Button,
+  IconButton,
 } from "native-base";
-import NativeBaseIcon from "./components/NativeBaseIcon";
 
-// Define the config
-const config = {
-  useSystemColorMode: false,
-  initialColorMode: "dark",
-};
+import CreditCard from "./assets/graphic.png";
+import { AntDesign, FontAwesome } from "@expo/vector-icons";
 
-// extend the theme
-export const theme = extendTheme({ config });
-type MyThemeType = typeof theme;
-declare module "native-base" {
-  interface ICustomTheme extends MyThemeType {}
-}
 export default function App() {
-  return (
-    <NativeBaseProvider>
-      <Center
-        _dark={{ bg: "blueGray.900" }}
-        _light={{ bg: "blueGray.50" }}
-        px={4}
-        flex={1}
-      >
-        <VStack space={5} alignItems="center">
-          <NativeBaseIcon />
-          <Heading size="lg">Welcome to NativeBase</Heading>
-          <HStack space={2} alignItems="center">
-            <Text>Edit</Text>
-            <Box
-              _web={{
-                _text: {
-                  fontFamily: "monospace",
-                  fontSize: "sm",
-                },
-              }}
-              px={2}
-              py={1}
-              _dark={{ bg: "blueGray.800" }}
-              _light={{ bg: "blueGray.200" }}
-            >
-              App.js
-            </Box>
-            <Text>and save to reload.</Text>
-          </HStack>
-          <Link href="https://docs.nativebase.io" isExternal>
-            <Text color="primary.500" underline fontSize={"xl"}>
-              Learn NativeBase
-            </Text>
-          </Link>
-          <ToggleDarkMode />
-        </VStack>
-      </Center>
-    </NativeBaseProvider>
-  );
-}
+  const [isEN, setIsEN] = useState(true);
 
-// Color Switch Component
-function ToggleDarkMode() {
-  const { colorMode, toggleColorMode } = useColorMode();
   return (
-    <HStack space={2} alignItems="center">
-      <Text>Dark</Text>
-      <Switch
-        isChecked={colorMode === "light"}
-        onToggle={toggleColorMode}
-        aria-label={
-          colorMode === "light" ? "switch to dark mode" : "switch to light mode"
-        }
-      />
-      <Text>Light</Text>
-    </HStack>
+    <NativeBaseProvider theme={theme}>
+      <VStack
+        px={6}
+        w="100%"
+        h="100%"
+        bg="gray.800"
+        safeArea
+        justifyContent={"center"}
+      >
+        <HStack justifyContent={"space-between"} alignItems="center">
+          <Heading fontSize={35} color="white">
+            Valt.
+          </Heading>
+          <Button
+            h="100%"
+            bg="white"
+            rounded={"2xl"}
+            _pressed={{
+              bg: "gray.100",
+            }}
+            onPress={() => setIsEN(!isEN)}
+          >
+            <Text color={"black"} fontWeight={600}>
+              {isEN ? "BR" : "EN"}
+            </Text>
+          </Button>
+        </HStack>
+        <Center my={12}>
+          <Image
+            source={CreditCard}
+            w={"100%"}
+            h={300}
+            alt="Credit Cards"
+            resizeMode="contain"
+          />
+        </Center>
+        <VStack space={0}>
+          <Heading color="white" fontSize={30}>
+            {isEN ? "Receive" : "Receber"} <Text color="pink.400">USD.</Text>
+          </Heading>
+          <Heading color="white" fontSize={30}>
+            {isEN ? "Spend" : "Gastar"} <Text color="green.400">BRL.</Text>
+          </Heading>
+        </VStack>
+        <HStack
+          mt={6}
+          space={2}
+          position="relative"
+          h={16}
+          px={2}
+          justifyContent={"center"}
+        >
+          <Button
+            rounded={20}
+            bg="white"
+            w="60%"
+            _pressed={{
+              bg: "gray.100",
+            }}
+          >
+            <Text fontSize={18} color="black" fontWeight={600}>
+              {isEN ? "Sign In" : "Entrar"}
+            </Text>
+          </Button>
+          <IconButton
+            // @ts-ignore - why is this erroring?
+            icon={<FontAwesome name="apple" size={22} color="white" />}
+            bg="gray.700"
+            w="20%"
+            rounded="3xl"
+            _pressed={{
+              bg: "gray.600",
+            }}
+          />
+          <IconButton
+            // @ts-ignore - why is this erroring?
+            icon={<AntDesign name="google" size={22} color="white" />}
+            bg="gray.700"
+            w="20%"
+            rounded="3xl"
+            _pressed={{
+              bg: "gray.600",
+            }}
+          />
+        </HStack>
+        <HStack mt={8} justifyContent="flex-end"></HStack>
+      </VStack>
+    </NativeBaseProvider>
   );
 }
