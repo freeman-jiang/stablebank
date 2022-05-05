@@ -54,12 +54,17 @@ export const SignIn = ({ navigation }: Props) => {
           </Text>
           <Button
             mt={4}
-            colorScheme="emerald"
+            bg="white"
             rounded="xl"
             py={4}
             onPress={handlePress}
+            _pressed={{
+              bg: "gray.100",
+            }}
           >
-            <Text fontWeight={600}>{isEN ? "Continue" : "Continuar"}</Text>
+            <Text fontWeight={600} color="gray.800">
+              {isEN ? "Continue" : "Continuar"}
+            </Text>
           </Button>
         </VStack>
       </Box>
