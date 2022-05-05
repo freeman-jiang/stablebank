@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Text,
   HStack,
@@ -12,13 +12,13 @@ import {
 import CreditCard from "../assets/graphic.png";
 import { AntDesign, FontAwesome } from "@expo/vector-icons";
 import { StatusBar } from "react-native";
-
 import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../App";
+import { useLang } from "../context/lang";
 type Props = NativeStackScreenProps<RootStackParamList, "Landing">;
 
 export const Landing = ({ navigation }: Props) => {
-  const [isEN, setIsEN] = useState(true);
+  const { isEN, setIsEN } = useLang();
 
   return (
     <>

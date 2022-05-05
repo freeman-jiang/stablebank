@@ -6,8 +6,9 @@ import { Home } from "./Home";
 import { Wallet } from "./Wallet";
 import { RootStackParamList } from "../../App";
 import { Profile } from "./Profile";
-import { Box, Icon, Text, VStack } from "native-base";
+import { Icon, Text, VStack } from "native-base";
 import { Entypo, FontAwesome } from "@expo/vector-icons";
+import { useLang } from "../../context/lang";
 
 export type RootTabParamList = {
   Home: undefined;
@@ -20,6 +21,7 @@ const Tab = createBottomTabNavigator<RootTabParamList>();
 type Props = NativeStackScreenProps<RootStackParamList, "Dashboard">;
 
 export const Dashboard = ({ navigation }: Props) => {
+  const { isEN } = useLang();
   return (
     // @ts-ignore
     <Tab.Navigator
@@ -73,7 +75,7 @@ export const Dashboard = ({ navigation }: Props) => {
                 />
 
                 <Text color={color} fontWeight={500}>
-                  Spend
+                  {isEN ? "Spend" : "Gastar"}
                 </Text>
               </VStack>
             );

@@ -12,9 +12,11 @@ import React from "react";
 import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../App";
 import { Entypo } from "@expo/vector-icons";
+import { useLang } from "../context/lang";
 type Props = NativeStackScreenProps<RootStackParamList, "SignIn">;
 
 export const SignIn = ({ navigation }: Props) => {
+  const { isEN } = useLang();
   const handlePress = () =>
     navigation.reset({
       index: 0,
@@ -40,8 +42,16 @@ export const SignIn = ({ navigation }: Props) => {
 
       <Box>
         <VStack pb={"25%"} h="100%" justifyContent={"center"}>
-          <Heading fontSize={30}>We've emailed you a magic link!</Heading>
-          <Text fontSize={18}>Click the link we sent to sign in.</Text>
+          <Heading fontSize={30}>
+            {isEN
+              ? "We've emailed you a magic link!"
+              : "Enviamos um link mágico para você!"}
+          </Heading>
+          <Text fontSize={18}>
+            {isEN
+              ? "Click the link we sent to sign in."
+              : "Clique no link que enviamos para fazer login."}
+          </Text>
           <Button
             mt={4}
             colorScheme="emerald"
@@ -49,7 +59,7 @@ export const SignIn = ({ navigation }: Props) => {
             py={4}
             onPress={handlePress}
           >
-            <Text fontWeight={600}>Continue</Text>
+            <Text fontWeight={600}>{isEN ? "Continue" : "Continuar"}</Text>
           </Button>
         </VStack>
       </Box>
