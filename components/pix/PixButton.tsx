@@ -23,12 +23,10 @@ export const PixButton = ({ amount, currency }: Props) => {
     <>
       <Button
         mt={8}
-        bg="black"
-        py={4}
-        rounded="lg"
-        _pressed={{
-          bg: "gray.800",
-        }}
+        py={3}
+        bg="gray.900"
+        rounded="xl"
+        _pressed={{ bg: "gray.800" }}
         onPress={() => {
           onOpen();
           Keyboard.dismiss();

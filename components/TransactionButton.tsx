@@ -69,12 +69,13 @@ export const TransactionButton = (props: InterfaceBoxProps) => {
   return (
     <Box w="100%" px={6} {...props}>
       <Button
+        py={3}
         bg="gray.800"
         rounded="xl"
         _pressed={{ bg: "gray.700" }}
         onPress={onOpen}
       >
-        <Text color="gray.50" fontWeight={600} py={1}>
+        <Text color="white" fontSize={16} fontWeight={600}>
           View transactions
         </Text>
       </Button>
