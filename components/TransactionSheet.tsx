@@ -188,9 +188,9 @@ export const TransactionSheet = () => {
   return (
     <Box mt={2} w="100%" px={6}>
       <Button
-        bg="gray.900"
+        bg="gray.800"
         rounded="xl"
-        _pressed={{ bg: "gray.800" }}
+        _pressed={{ bg: "gray.700" }}
         onPress={onOpen}
       >
         <Text color="gray.50" fontWeight={600} py={1}>
