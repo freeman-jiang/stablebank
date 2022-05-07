@@ -3,7 +3,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { Receive } from "./Receive";
-import { Wallet } from "./Wallet";
+import { Spend } from "./Spend";
 import { RootStackParamList } from "../../App";
 import { Home } from "./Home";
 import { Icon, Text, VStack } from "native-base";
@@ -16,7 +16,7 @@ import { useLang } from "../../context/lang";
 
 export type RootTabParamList = {
   Receive: undefined;
-  Wallet: undefined;
+  Spend: undefined;
   Home: undefined;
 };
 
@@ -96,8 +96,8 @@ export const Dashboard = ({ navigation }: Props) => {
         }}
       />
       <Tab.Screen
-        name="Wallet"
-        component={Wallet}
+        name="Spend"
+        component={Spend}
         options={{
           tabBarIcon: ({ focused }) => {
             const color = focused ? "black" : "gray.500";

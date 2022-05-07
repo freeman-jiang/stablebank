@@ -29,7 +29,7 @@ interface onViewableItemsChangedProps {
   changed: ViewToken[];
 }
 
-export const Wallet = () => {
+export const Spend = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const renderItem: ListRenderItem<any> = ({ index, item }) => (
     <Image
