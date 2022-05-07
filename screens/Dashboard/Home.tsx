@@ -10,7 +10,7 @@ import {
   Box,
 } from "native-base";
 import React, { useState } from "react";
-import { TransactionSheet } from "../../components/TransactionSheet";
+import { TransactionButton } from "../../components/TransactionButton";
 
 export const Home = () => {
   const [showBRL, setShowBRL] = useState(false);
@@ -109,9 +109,7 @@ export const Home = () => {
           </Text>
         </VStack>
       </HStack>
-      <Box w="100%" mt={3}>
-        <TransactionSheet />
-      </Box>
+      <TransactionButton mt={6} />
     </VStack>
   );
 };
