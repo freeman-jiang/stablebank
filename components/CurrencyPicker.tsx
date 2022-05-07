@@ -51,7 +51,7 @@ export const CurrencyPicker = ({ currency, setCurrency }: Props) => {
         onTouchEnd={onClose}
         hideDragIndicator={true}
         _backdrop={{
-          bg: "gray.500",
+          bg: "gray.900",
         }}
       >
         <Actionsheet.Content pt={6} bg="#e8e7e6" px={6}>

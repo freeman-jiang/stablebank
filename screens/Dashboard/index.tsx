@@ -2,18 +2,22 @@ import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 import type { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { Home } from "./Home";
+import { Receive } from "./Receive";
 import { Wallet } from "./Wallet";
 import { RootStackParamList } from "../../App";
-import { Profile } from "./Profile";
+import { Home } from "./Home";
 import { Icon, Text, VStack } from "native-base";
-import { Entypo, FontAwesome } from "@expo/vector-icons";
+import {
+  Entypo,
+  FontAwesome,
+  MaterialCommunityIcons,
+} from "@expo/vector-icons";
 import { useLang } from "../../context/lang";
 
 export type RootTabParamList = {
-  Home: undefined;
+  Receive: undefined;
   Wallet: undefined;
-  Profile: undefined;
+  Home: undefined;
 };
 
 const Tab = createBottomTabNavigator<RootTabParamList>();
@@ -34,6 +38,7 @@ export const Dashboard = ({ navigation }: Props) => {
           borderTopWidth: 0,
           backgroundColor: "#ededed",
         },
+        lazy: false,
       }}
     >
       <Tab.Screen
@@ -45,14 +50,45 @@ export const Dashboard = ({ navigation }: Props) => {
             return (
               <VStack alignItems={"center"} space={1}>
                 <Icon
-                  // @ts-ignore
-                  as={<Entypo name="home" size={24} />}
-                  size={6}
+                  as={
+                    // @ts-ignore
+                    <Entypo name="home" size={24} color="black" />
+                  }
+                  size={7}
                   color={color}
                 />
 
                 <Text fontWeight={500} color={color}>
                   Home
+                </Text>
+              </VStack>
+            );
+          },
+        }}
+      />
+      <Tab.Screen
+        name="Receive"
+        component={Receive}
+        options={{
+          tabBarIcon: ({ focused }) => {
+            const color = focused ? "black" : "gray.500";
+            return (
+              <VStack alignItems={"center"} space={1}>
+                <Icon
+                  as={
+                    // @ts-ignore
+                    <MaterialCommunityIcons
+                      name="card-plus"
+                      size={24}
+                      color="black"
+                    />
+                  }
+                  size={7}
+                  color={color}
+                />
+
+                <Text fontWeight={500} color={color}>
+                  Receive
                 </Text>
               </VStack>
             );
