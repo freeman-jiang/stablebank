@@ -1,7 +1,11 @@
 import { Divider, Heading, HStack, Text } from "native-base";
 import React from "react";
 import { Pressable } from "react-native";
-import { Currency, CurrencyFlag } from "../types/international";
+import {
+  Currency,
+  CurrencyFlag,
+  CurrencyCountry,
+} from "../types/international";
 
 interface Props {
   currency: Currency;
@@ -19,16 +23,17 @@ export const CurrencyTab = ({ currency, setCurrency, onClose }: Props) => {
     >
       <HStack
         justifyContent={"space-between"}
-        bg="white"
+        bg="gray.100"
         w="100%"
-        p={3.5}
         rounded="xl"
+        py={1}
+        px={4}
       >
         <HStack space={2} alignItems="center">
-          <Text fontSize={18} fontWeight={600} color="black">
+          <Text fontSize={30} fontWeight={600} color="black">
             {CurrencyFlag[currency]}
           </Text>
-          <Text fontSize={18} fontWeight={600} color="black">
+          <Text ml={2} fontSize={18} fontWeight={600} color="black">
             {currency}
           </Text>
         </HStack>

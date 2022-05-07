@@ -5,7 +5,7 @@ export enum Currency {
   EUR = "EUR",
 }
 
-export enum CurrencyName {
+export enum CurrencyCountry {
   BRL = "Brazil",
   USD = "United States",
   CAD = "Canada",

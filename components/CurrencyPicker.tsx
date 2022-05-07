@@ -11,7 +11,11 @@ import {
 } from "native-base";
 import React from "react";
 import { Keyboard } from "react-native";
-import { Currency, CurrencyFlag, CurrencyName } from "../types/international";
+import {
+  Currency,
+  CurrencyFlag,
+  CurrencyCountry,
+} from "../types/international";
 import { CurrencyTab } from "./CurrencyTab";
 
 const currencies = Object.keys(Currency);
@@ -41,7 +45,7 @@ export const CurrencyPicker = ({ currency, setCurrency }: Props) => {
         >
           <Text fontSize={18} color="gray.800" fontWeight={700}>
             {`${CurrencyFlag[currency]} ${currency} `}
-            <Text fontWeight={400}>{`- ${CurrencyName[currency]}`}</Text>
+            <Text fontWeight={400}>{`- ${CurrencyCountry[currency]}`}</Text>
           </Text>
         </HStack>
       </Pressable>
@@ -61,7 +65,7 @@ export const CurrencyPicker = ({ currency, setCurrency }: Props) => {
             alignItems="center"
             w="100%"
           >
-            <Heading color={"gray.900"} fontSize={22}>
+            <Heading fontWeight={500} color={"gray.900"} fontSize={23}>
               Choose currency
             </Heading>
             <IconButton
