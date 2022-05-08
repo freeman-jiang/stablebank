@@ -60,7 +60,7 @@ export const MOCK_DATA: iTransaction[] = [
   {
     name: "David Drobik",
     icon: "https://media-exp1.licdn.com/dms/image/C4D03AQH_SYJL2BBbQQ/profile-displayphoto-shrink_400_400/0/1633175858104?e=1657152000&v=beta&t=7zSXJAUCGSTcDFCT5K4t99rVOEm_dnSdc8Dnbmwxja8",
-    date: "April 30, 9:58 PM",
+    date: "May 1, 9:58 PM",
     amount: 4.23,
     type: "credit",
   },
