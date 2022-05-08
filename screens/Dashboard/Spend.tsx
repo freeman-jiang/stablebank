@@ -15,13 +15,13 @@ import { Dimensions, ListRenderItem, ViewToken } from "react-native";
 import Card1 from "../../assets/card-1.png";
 import Card2 from "../../assets/card-2.png";
 import Card3 from "../../assets/card-3.png";
-import Card4 from "../../assets/card-4.png";
-import Card5 from "../../assets/card-5.png";
+
+import Pix from "../../assets/pix.png";
 import AppleWalletLogo from "../../assets/apple-wallet.png";
 import { Dot } from "../../components/Dot";
 import { AntDesign } from "@expo/vector-icons";
 
-const Cards = [Card1, Card2, Card3, Card4, Card5];
+const Cards = [Card1, Card2, Card3];
 const screenWidth = Dimensions.get("window").width;
 
 interface onViewableItemsChangedProps {
@@ -72,35 +72,7 @@ export const Spend = () => {
           <Dot key={index} active={index === activeIndex} />
         ))}
       </HStack>
-      <HStack mt={2} mx={6}>
-        <Pressable
-          bg="gray.900"
-          w="100%"
-          py={4}
-          rounded="xl"
-          _pressed={{
-            bg: "gray.800",
-          }}
-        >
-          <HStack justifyContent={"center"} alignItems="center" space={1}>
-            <Text fontSize={16} fontWeight={600} color="white">
-              Pay with
-            </Text>
-            <HStack space={0} alignItems="center">
-              <Icon
-                //@ts-ignore
-                as={<AntDesign name="apple1" />}
-                color="white"
-                size="sm"
-              />
-              <Text fontSize={16} fontWeight={600} color="white">
-                Pay
-              </Text>
-            </HStack>
-          </HStack>
-        </Pressable>
-      </HStack>
-      <HStack mt={4} mx={6}>
+      <HStack mx={6}>
         <Pressable
           bg="gray.900"
           w="100%"
@@ -124,6 +96,61 @@ export const Spend = () => {
           </HStack>
         </Pressable>
       </HStack>
+
+      <VStack space={4}>
+        <HStack mt={4} mx={6}>
+          <Pressable
+            bg="gray.900"
+            w="100%"
+            py={4}
+            rounded="xl"
+            _pressed={{
+              bg: "gray.800",
+            }}
+          >
+            <HStack justifyContent={"center"} alignItems="center">
+              <Image
+                source={Pix}
+                alt="Pix Logo"
+                h="100%"
+                w={12}
+                resizeMode="contain"
+              />
+              <Text ml={2} fontSize={16} fontWeight={500} color="white">
+                Pay with PIX
+              </Text>
+            </HStack>
+          </Pressable>
+        </HStack>
+        <HStack mx={6}>
+          <Pressable
+            bg="gray.900"
+            w="100%"
+            py={4}
+            rounded="xl"
+            _pressed={{
+              bg: "gray.800",
+            }}
+          >
+            <HStack justifyContent={"center"} alignItems="center" space={1}>
+              <Text fontSize={16} fontWeight={600} color="white">
+                Pay with
+              </Text>
+              <HStack space={0} alignItems="center">
+                <Icon
+                  //@ts-ignore
+                  as={<AntDesign name="apple1" />}
+                  color="white"
+                  size="sm"
+                />
+                <Text fontSize={16} fontWeight={600} color="white">
+                  Pay
+                </Text>
+              </HStack>
+            </HStack>
+          </Pressable>
+        </HStack>
+      </VStack>
     </VStack>
   );
 };
