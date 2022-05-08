@@ -13,11 +13,13 @@ import {
   MaterialCommunityIcons,
 } from "@expo/vector-icons";
 import { useLang } from "../../context/lang";
+import { Account } from "./Account";
 
 export type RootTabParamList = {
   Receive: undefined;
   Spend: undefined;
   Home: undefined;
+  Account: undefined;
 };
 
 const Tab = createBottomTabNavigator<RootTabParamList>();
@@ -39,6 +41,7 @@ export const Dashboard = ({ navigation }: Props) => {
             paddingTop: 26,
             borderTopWidth: 0,
             backgroundColor: "#ededed",
+            paddingHorizontal: 6,
           },
           lazy: false,
         }}
@@ -54,7 +57,7 @@ export const Dashboard = ({ navigation }: Props) => {
                   <Icon
                     as={
                       // @ts-ignore
-                      <Entypo name="home" size={24} color="black" />
+                      <FontAwesome name="home" />
                     }
                     size={7}
                     color={color}
@@ -78,11 +81,7 @@ export const Dashboard = ({ navigation }: Props) => {
                   <Icon
                     as={
                       // @ts-ignore
-                      <MaterialCommunityIcons
-                        name="card-plus"
-                        size={24}
-                        color="black"
-                      />
+                      <MaterialCommunityIcons name="card-plus" />
                     }
                     size={7}
                     color={color}
@@ -105,12 +104,36 @@ export const Dashboard = ({ navigation }: Props) => {
                 <VStack alignItems={"center"} space={1}>
                   <Icon
                     // @ts-ignore
-                    as={<FontAwesome name="credit-card-alt" size={24} />}
-                    size={6}
+                    as={<MaterialCommunityIcons name="credit-card" />}
+                    size={7}
                     color={color}
                   />
                   <Text color={color} fontWeight={500}>
                     {isEN ? "Spend" : "Gastar"}
+                  </Text>
+                </VStack>
+              );
+            },
+          }}
+        />
+        <Tab.Screen
+          name="Account"
+          component={Account}
+          options={{
+            tabBarIcon: ({ focused }) => {
+              const color = focused ? "black" : "gray.500";
+              return (
+                <VStack alignItems={"center"} space={1}>
+                  <Icon
+                    as={
+                      // @ts-ignore
+                      <FontAwesome name="user" size={24} color="black" />
+                    }
+                    size={7}
+                    color={color}
+                  />
+                  <Text fontWeight={500} color={color}>
+                    Account
                   </Text>
                 </VStack>
               );
