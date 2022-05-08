@@ -14,6 +14,10 @@ import React, { useState } from "react";
 import { TransactionButton } from "../../components/TransactionButton";
 import { useLang } from "../../context/lang";
 
+const exchangeRateUSDtoBRL = 5.08; // May 8, 9:18 AM UTC
+const balanceUSD = Math.random() * 1000; // Random number between 0 and 1000
+const balanceBRL = balanceUSD * exchangeRateUSDtoBRL;
+
 export const Home = () => {
   const { isEN } = useLang();
   const [showBRL, setShowBRL] = useState(false);
@@ -53,7 +57,9 @@ export const Home = () => {
             {isEN ? "Total Balance" : "Balanço Total"}
           </Heading>
           <Heading color="gray.900" fontSize={34} letterSpacing={"sm"}>
-            {showBRL ? "R$ 1,675.55" : "$329.71"}
+            {showBRL
+              ? `R$ ${balanceBRL.toFixed(2)}`
+              : `$ ${balanceUSD.toFixed(2)}`}
           </Heading>
         </VStack>
         <HStack w="100%" justifyContent="center" space={3}>
