@@ -1,13 +1,16 @@
 import {
   Actionsheet,
-  Button,
   Heading,
+  HStack,
   Image,
+  Pressable,
   Text,
   useDisclose,
 } from "native-base";
-import * as React from "react";
+import React from "react";
 import { Keyboard } from "react-native";
+import Pix from "../../assets/pix.png";
+
 import QRCode from "../../assets/qr-code.png";
 import { Currency } from "../../types/international";
 
@@ -21,22 +24,38 @@ export const PixButton = ({ amount, currency }: Props) => {
 
   return (
     <>
-      <Button
-        mt={8}
-        py={3}
-        bg="gray.900"
-        rounded="xl"
-        _pressed={{ bg: "gray.800" }}
-        onPress={() => {
-          onOpen();
-          Keyboard.dismiss();
-        }}
-        isDisabled={!amount || amount === "0"}
-      >
-        <Text fontWeight={600} fontSize={"md"}>
-          Continue with PIX
-        </Text>
-      </Button>
+      <HStack mt={8}>
+        <Pressable
+          bg="gray.900"
+          w="100%"
+          py={4}
+          rounded="xl"
+          _pressed={{
+            bg: "gray.800",
+          }}
+          _disabled={{
+            bg: "gray.400",
+          }}
+          onPress={() => {
+            onOpen();
+            Keyboard.dismiss();
+          }}
+          isDisabled={!amount || amount === "0"}
+        >
+          <HStack justifyContent={"center"} alignItems="center">
+            <Image
+              source={Pix}
+              alt="Pix Logo"
+              h="100%"
+              w={12}
+              resizeMode="contain"
+            />
+            <Text ml={2} fontSize={16} fontWeight={500} color="white">
+              Charge with PIX
+            </Text>
+          </HStack>
+        </Pressable>
+      </HStack>
 
       <Actionsheet
         isOpen={isOpen}
