@@ -69,7 +69,7 @@ export const TransactionButton = (props: InterfaceBoxProps) => {
   const { isEN } = useLang();
 
   return (
-    <Box w="100%" px={6} {...props}>
+    <Box w={{ base: "100%", md: 300 }} px={6} {...props}>
       <Button
         py={3}
         bg="gray.800"

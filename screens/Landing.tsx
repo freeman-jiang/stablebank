@@ -32,7 +32,13 @@ export const Landing = ({ navigation }: Props) => {
     <>
       <StatusBar animated barStyle={"dark-content"} />
 
-      <VStack px={6} w="100%" h="100%" bg="gray.50" justifyContent={"center"}>
+      <VStack
+        px={{ base: 6, md: 12 }}
+        w="100%"
+        h="100%"
+        bg="gray.50"
+        justifyContent={"center"}
+      >
         <HStack justifyContent={"space-between"} alignItems="center">
           <Heading fontSize={35} color="black">
             StableBank

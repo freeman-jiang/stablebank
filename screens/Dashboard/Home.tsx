@@ -19,9 +19,17 @@ export const Home = () => {
   const [showBRL, setShowBRL] = useState(false);
   return (
     <ScrollView>
-      <VStack w="100%" h="100%" safeArea alignItems="center" space={0} pt={6}>
+      <VStack
+        w={{ base: "100%", md: 600 }}
+        h="100%"
+        safeArea
+        alignItems="center"
+        space={0}
+        pt={6}
+        mx="auto"
+      >
         <VStack w="100%" px={6} space={1}>
-          <Heading color="gray.900" fontSize={32} alignSelf="flex-start">
+          <Heading color="gray.900" fontSize={32}>
             {isEN ? "Overview" : "Visão geral"}
           </Heading>
           <HStack alignItems={"center"} space={0}>

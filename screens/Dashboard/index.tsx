@@ -6,10 +6,11 @@ import { Receive } from "./Receive";
 import { Spend } from "./Spend";
 import { RootStackParamList } from "../../App";
 import { Home } from "./Home";
-import { Icon, StatusBar, Text, VStack } from "native-base";
+import { Icon, StatusBar, Text, useBreakpointValue, VStack } from "native-base";
 import { FontAwesome, MaterialCommunityIcons } from "@expo/vector-icons";
 import { useLang } from "../../context/lang";
 import { Account } from "./Account";
+import { getScreenWidth } from "../../utils";
 
 type Props = NativeStackScreenProps<RootStackParamList, "Dashboard">;
 
@@ -23,6 +24,12 @@ export type RootTabParamList = {
 const Tab = createBottomTabNavigator<RootTabParamList>();
 
 export const Dashboard = ({ navigation }: Props) => {
+  const tabWidth = useBreakpointValue({
+    base: "100%",
+    md: getScreenWidth() / 4,
+  });
+
+  const tabNavPt = useBreakpointValue({ base: 26, md: 0 });
   const { isEN } = useLang();
   return (
     <>
@@ -34,7 +41,7 @@ export const Dashboard = ({ navigation }: Props) => {
           tabBarShowLabel: false,
           tabBarStyle: {
             height: 90,
-            paddingTop: 26,
+            paddingTop: tabNavPt,
             borderTopWidth: 0,
             backgroundColor: "#ededed",
             paddingHorizontal: 6,
@@ -49,7 +56,7 @@ export const Dashboard = ({ navigation }: Props) => {
             tabBarIcon: ({ focused }) => {
               const color = focused ? "black" : "gray.500";
               return (
-                <VStack alignItems={"center"} space={1}>
+                <VStack alignItems={"center"} space={1} w={tabWidth}>
                   <Icon
                     as={
                       // @ts-ignore
@@ -73,7 +80,7 @@ export const Dashboard = ({ navigation }: Props) => {
             tabBarIcon: ({ focused }) => {
               const color = focused ? "black" : "gray.500";
               return (
-                <VStack alignItems={"center"} space={1}>
+                <VStack alignItems={"center"} space={1} w={tabWidth}>
                   <Icon
                     as={
                       // @ts-ignore
@@ -97,7 +104,7 @@ export const Dashboard = ({ navigation }: Props) => {
             tabBarIcon: ({ focused }) => {
               const color = focused ? "black" : "gray.500";
               return (
-                <VStack alignItems={"center"} space={1}>
+                <VStack alignItems={"center"} space={1} w={tabWidth}>
                   <Icon
                     // @ts-ignore
                     as={<MaterialCommunityIcons name="credit-card" />}
@@ -119,7 +126,7 @@ export const Dashboard = ({ navigation }: Props) => {
             tabBarIcon: ({ focused }) => {
               const color = focused ? "black" : "gray.500";
               return (
-                <VStack alignItems={"center"} space={1}>
+                <VStack alignItems={"center"} space={1} w={tabWidth}>
                   <Icon
                     as={
                       // @ts-ignore

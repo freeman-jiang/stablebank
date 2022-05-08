@@ -40,7 +40,7 @@ export const SignIn = ({ navigation }: Props) => {
         </Button>
       </HStack>
 
-      <Box>
+      <Box w={{ base: "100%", md: 600 }} mx="auto" px={{ base: 0, md: 6 }}>
         <VStack pb={"25%"} h="100%" justifyContent={"center"}>
           <Heading fontSize={30} color="gray.900">
             {isEN

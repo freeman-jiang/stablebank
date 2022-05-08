@@ -39,7 +39,14 @@ export const Receive = () => {
   return (
     <ScrollView>
       <Pressable onPress={() => Keyboard.dismiss()}>
-        <VStack px={6} py={6} w="100%" h="100%" safeArea>
+        <VStack
+          px={6}
+          py={6}
+          w={{ base: "100%", md: 600 }}
+          h="100%"
+          safeArea
+          mx="auto"
+        >
           <Heading color="gray.900" fontSize={28}>
             {isEN ? "Receive Payment" : "Receber Pagamento"}
           </Heading>

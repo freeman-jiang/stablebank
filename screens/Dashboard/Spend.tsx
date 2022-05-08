@@ -56,11 +56,19 @@ export const Spend = () => {
 
   return (
     <ScrollView>
-      <VStack w="100%" h="100%" safeArea alignItems="center" space={0} pt={6}>
+      <VStack
+        w={{ base: "100%", md: 600 }}
+        h="100%"
+        safeArea
+        alignItems="center"
+        space={0}
+        pt={6}
+        mx="auto"
+      >
         <Heading color="gray.900" fontSize={28} alignSelf="flex-start" ml={6}>
           {isEN ? "Your Cards" : "Suas Cartas"}
         </Heading>
-        <Box h={260}>
+        <Box h={{ base: 260, md: 300 }} w={screenWidth} mt={{ base: 0, md: 5 }}>
           <FlatList
             data={Cards}
             renderItem={renderItem}
@@ -77,32 +85,33 @@ export const Spend = () => {
             <Dot key={index} active={index === activeIndex} />
           ))}
         </HStack>
-        <HStack mt={2} mx={6}>
-          <Pressable
-            bg="gray.900"
-            w="100%"
-            py={4}
-            rounded="xl"
-            _pressed={{
-              bg: "gray.800",
-            }}
-          >
-            <HStack justifyContent={"center"}>
-              <Image
-                source={AppleWalletLogo}
-                alt="Apple Wallet Logo"
-                h="100%"
-                w={8}
-                resizeMode="contain"
-              />
-              <Text ml={2} fontSize={16} fontWeight={500} color="white">
-                {isEN ? "Add to Apple Wallet" : "Adicionar à Apple Wallet"}
-              </Text>
-            </HStack>
-          </Pressable>
-        </HStack>
-        <VStack space={4}>
-          <HStack mt={4} mx={6}>
+
+        <VStack mt={2} space={4}>
+          <HStack mx={6}>
+            <Pressable
+              bg="gray.900"
+              w="100%"
+              py={4}
+              rounded="xl"
+              _pressed={{
+                bg: "gray.800",
+              }}
+            >
+              <HStack justifyContent={"center"}>
+                <Image
+                  source={AppleWalletLogo}
+                  alt="Apple Wallet Logo"
+                  h="100%"
+                  w={8}
+                  resizeMode="contain"
+                />
+                <Text ml={2} fontSize={16} fontWeight={500} color="white">
+                  {isEN ? "Add to Apple Wallet" : "Adicionar à Apple Wallet"}
+                </Text>
+              </HStack>
+            </Pressable>
+          </HStack>
+          <HStack mx={6}>
             <Pressable
               bg="gray.900"
               w="100%"

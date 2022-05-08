@@ -27,7 +27,15 @@ export const Account = ({ navigation }: Props) => {
   const { isEN, setIsEN } = useLang();
   return (
     <ScrollView>
-      <VStack w="100%" h="100%" safeArea alignItems="center" space={0} pt={4}>
+      <VStack
+        w={{ base: "100%", md: 600 }}
+        h="100%"
+        safeArea
+        alignItems="center"
+        space={0}
+        pt={4}
+        mx="auto"
+      >
         <VStack w="100%" h={50} justifyContent="flex-end">
           <Heading
             color="gray.900"
