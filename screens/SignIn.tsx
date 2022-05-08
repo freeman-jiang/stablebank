@@ -44,12 +44,12 @@ export const SignIn = ({ navigation }: Props) => {
         <VStack pb={"25%"} h="100%" justifyContent={"center"}>
           <Heading fontSize={30} color="gray.900">
             {isEN
-              ? "We've emailed you a magic link!"
+              ? "We've sent you a magic link!"
               : "Enviamos um link mágico para você!"}
           </Heading>
           <Text fontSize={18} color="gray.900">
             {isEN
-              ? "Click the link we sent to sign in."
+              ? "Click the link we sent to your email to sign in."
               : "Clique no link que enviamos para fazer login."}
           </Text>
           <Button
