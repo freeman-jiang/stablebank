@@ -74,7 +74,7 @@ export const Spend = () => {
           <Dot key={index} active={index === activeIndex} />
         ))}
       </HStack>
-      <HStack mx={6}>
+      <HStack mt={2} mx={6}>
         <Pressable
           bg="gray.900"
           w="100%"
