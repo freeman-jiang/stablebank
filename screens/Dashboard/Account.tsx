@@ -1,5 +1,9 @@
-import { Feather } from "@expo/vector-icons";
+import { AntDesign, Feather } from "@expo/vector-icons";
+import { BottomTabScreenProps } from "@react-navigation/bottom-tabs";
+import { CompositeScreenProps } from "@react-navigation/native";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import {
+  Button,
   Heading,
   HStack,
   Icon,
@@ -9,9 +13,16 @@ import {
   VStack,
 } from "native-base";
 import React from "react";
+import { RootTabParamList } from ".";
+import { RootStackParamList } from "../../App";
 import { useLang } from "../../context/lang";
 
-export const Account = () => {
+type Props = CompositeScreenProps<
+  BottomTabScreenProps<RootTabParamList>,
+  NativeStackScreenProps<RootStackParamList>
+>;
+
+export const Account = ({ navigation }: Props) => {
   const { isEN, setIsEN } = useLang();
   return (
     <VStack w="100%" h="100%" safeArea alignItems="center" space={0} pt={6}>
@@ -113,6 +124,27 @@ export const Account = () => {
             </HStack>
           </Pressable>
         </VStack>
+        <Button
+          onPress={() => navigation.navigate("Landing")}
+          px={6}
+          py={3}
+          mt={2}
+          alignSelf={"flex-end"}
+          rounded="full"
+          shadow={"1"}
+          bg="gray.50"
+          _pressed={{
+            bg: "gray.100",
+          }}
+          rightIcon={
+            //@ts-ignore
+            <AntDesign name="logout" size={22} color="black" />
+          }
+        >
+          <Text mr={1} fontWeight={500} color="gray.900">
+            {isEN ? "Sign out" : "Sair"}
+          </Text>
+        </Button>
       </VStack>
     </VStack>
   );

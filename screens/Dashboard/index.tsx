@@ -11,6 +11,8 @@ import { FontAwesome, MaterialCommunityIcons } from "@expo/vector-icons";
 import { useLang } from "../../context/lang";
 import { Account } from "./Account";
 
+type Props = NativeStackScreenProps<RootStackParamList, "Dashboard">;
+
 export type RootTabParamList = {
   Receive: undefined;
   Spend: undefined;
@@ -19,8 +21,6 @@ export type RootTabParamList = {
 };
 
 const Tab = createBottomTabNavigator<RootTabParamList>();
-
-type Props = NativeStackScreenProps<RootStackParamList, "Dashboard">;
 
 export const Dashboard = ({ navigation }: Props) => {
   const { isEN } = useLang();
