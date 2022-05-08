@@ -87,7 +87,7 @@ export const TransactionButton = (props: InterfaceBoxProps) => {
         }}
         h={"100%"}
       >
-        <Actionsheet.Content pt={6} bg="#e8e7e6" px={6}>
+        <Actionsheet.Content pt={6} bg="#e8e7e6" px={4}>
           <VStack
             mt={2}
             px={1}
@@ -97,7 +97,7 @@ export const TransactionButton = (props: InterfaceBoxProps) => {
           >
             <HStack
               w="100%"
-              justifyContent={"center"}
+              justifyContent={"space-between"}
               alignItems={"center"}
               space={4}
             >
