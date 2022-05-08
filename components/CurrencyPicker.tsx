@@ -11,10 +11,12 @@ import {
 } from "native-base";
 import React from "react";
 import { Keyboard } from "react-native";
+import { useLang } from "../context/lang";
 import {
   Currency,
   CurrencyFlag,
   CurrencyCountry,
+  PTCurrencyCountry,
 } from "../types/international";
 import { CurrencyTab } from "./CurrencyTab";
 
@@ -25,6 +27,7 @@ interface Props {
 }
 
 export const CurrencyPicker = ({ currency, setCurrency }: Props) => {
+  const { isEN } = useLang();
   const { isOpen, onOpen, onClose } = useDisclose();
 
   return (
@@ -42,10 +45,16 @@ export const CurrencyPicker = ({ currency, setCurrency }: Props) => {
           px={3.5}
           h={16}
           alignItems="center"
+          space={2}
         >
+          <Text fontSize={30} fontWeight={600} color="black">
+            {CurrencyFlag[currency]}
+          </Text>
           <Text fontSize={18} color="gray.800" fontWeight={700}>
-            {`${CurrencyFlag[currency]} ${currency} `}
-            <Text fontWeight={400}>{`- ${CurrencyCountry[currency]}`}</Text>
+            {currency}
+            <Text fontWeight={400}>{` - ${
+              isEN ? CurrencyCountry[currency] : PTCurrencyCountry[currency]
+            }`}</Text>
           </Text>
         </HStack>
       </Pressable>
@@ -66,7 +75,7 @@ export const CurrencyPicker = ({ currency, setCurrency }: Props) => {
             w="100%"
           >
             <Heading fontWeight={500} color={"gray.900"} fontSize={23}>
-              Choose currency
+              {isEN ? " Choose currency" : "Escolha a moeda"}
             </Heading>
             <IconButton
               size={28}

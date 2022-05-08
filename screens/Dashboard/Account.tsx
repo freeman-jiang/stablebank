@@ -15,16 +15,23 @@ export const Account = () => {
   const { isEN, setIsEN } = useLang();
   return (
     <VStack w="100%" h="100%" safeArea alignItems="center" space={0} pt={6}>
-      <Heading color="gray.900" fontSize={32} alignSelf="flex-start" ml={6}>
-        Account Settings
-      </Heading>
+      <VStack w="100%" h={50} justifyContent="flex-end">
+        <Heading
+          color="gray.900"
+          fontSize={isEN ? 32 : 24}
+          ml={6}
+          alignSelf="flex-start"
+        >
+          {isEN ? "Account Settings" : "Configurações de Conta"}
+        </Heading>
+      </VStack>
       <VStack w="100%" h="100%" space={1} px={6} mt={5}>
         <Heading color="gray.900" fontWeight={500} fontSize="xl">
-          Language:
+          {isEN ? "Language:" : "Língua:"}
         </Heading>
         <VStack space={2} mt={2}>
           <Pressable
-            rounded="lg"
+            rounded="xl"
             onPress={() => setIsEN(true)}
             zIndex={3}
             _pressed={{
@@ -65,7 +72,7 @@ export const Account = () => {
             </HStack>
           </Pressable>
           <Pressable
-            rounded="lg"
+            rounded="xl"
             onPress={() => setIsEN(false)}
             zIndex={3}
             _pressed={{
@@ -79,7 +86,7 @@ export const Account = () => {
           >
             <HStack justifyContent={"space-between"} w="100%">
               <Text color={"gray.900"} fontWeight={500}>
-                Portuguese
+                Português
               </Text>
 
               <PresenceTransition

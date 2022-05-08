@@ -20,6 +20,7 @@ import Pix from "../../assets/pix.png";
 import AppleWalletLogo from "../../assets/apple-wallet.png";
 import { Dot } from "../../components/Dot";
 import { AntDesign } from "@expo/vector-icons";
+import { useLang } from "../../context/lang";
 
 const Cards = [Card1, Card2, Card3];
 const screenWidth = Dimensions.get("window").width;
@@ -30,6 +31,7 @@ interface onViewableItemsChangedProps {
 }
 
 export const Spend = () => {
+  const { isEN } = useLang();
   const [activeIndex, setActiveIndex] = useState(0);
   const renderItem: ListRenderItem<any> = ({ index, item }) => (
     <Image
@@ -53,7 +55,7 @@ export const Spend = () => {
   return (
     <VStack w="100%" h="100%" safeArea alignItems="center" space={0} pt={6}>
       <Heading color="gray.900" fontSize={32} alignSelf="flex-start" ml={6}>
-        Your Cards
+        {isEN ? "Your Cards" : "Suas Cartas"}
       </Heading>
       <Box h={260}>
         <FlatList
@@ -91,7 +93,7 @@ export const Spend = () => {
               resizeMode="contain"
             />
             <Text ml={2} fontSize={16} fontWeight={500} color="white">
-              Add to Apple Wallet
+              {isEN ? "Add to Apple Wallet" : "Adicionar à Apple Wallet"}
             </Text>
           </HStack>
         </Pressable>
@@ -117,7 +119,7 @@ export const Spend = () => {
                 resizeMode="contain"
               />
               <Text ml={2} fontSize={16} fontWeight={500} color="white">
-                Pay with PIX
+                {isEN ? "Pay with PIX" : "Pagar com PIX"}
               </Text>
             </HStack>
           </Pressable>
@@ -134,7 +136,7 @@ export const Spend = () => {
           >
             <HStack justifyContent={"center"} alignItems="center" space={1}>
               <Text fontSize={16} fontWeight={600} color="white">
-                Pay with
+                {isEN ? "Pay with" : "Pagar com"}
               </Text>
               <HStack space={0} alignItems="center">
                 <Icon

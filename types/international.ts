@@ -12,6 +12,13 @@ export enum CurrencyCountry {
   EUR = "Europe",
 }
 
+export enum PTCurrencyCountry {
+  BRL = "Brasil",
+  USD = "Estados Unidos",
+  CAD = "Canadá",
+  EUR = "Europa",
+}
+
 export enum CurrencyFlag {
   BRL = "🇧🇷",
   USD = "🇺🇸",

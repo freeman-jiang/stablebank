@@ -8,9 +8,11 @@ import {
 } from "react-native";
 import { CurrencyPicker } from "../../components/CurrencyPicker";
 import { PixButton } from "../../components/pix/PixButton";
+import { useLang } from "../../context/lang";
 import { Currency } from "../../types/international";
 
 export const Receive = () => {
+  const { isEN } = useLang();
   const [currency, setCurrency] = useState<Currency>(Currency.BRL);
   const [amount, setAmount] = useState<string>("");
 
@@ -30,19 +32,19 @@ export const Receive = () => {
   return (
     <Pressable onPress={() => Keyboard.dismiss()}>
       <VStack px={6} py={6} w="100%" h="100%" safeArea>
-        <Heading color="gray.900" fontSize={32}>
-          Receive Payment
+        <Heading color="gray.900" fontSize={isEN ? 32 : 28}>
+          {isEN ? "Receive Payment" : "Receber Pagamento"}
         </Heading>
         <VStack mt={4} space={2}>
           <Text color="gray.600" fontSize={16}>
-            Currency
+            {isEN ? "Currency" : "Moeda"}
           </Text>
           <CurrencyPicker currency={currency} setCurrency={setCurrency} />
         </VStack>
 
         <VStack mt={4} space={2}>
           <Text color="gray.600" fontSize={16}>
-            Amount
+            {isEN ? "Amount" : "Quantidade"}
           </Text>
           <HStack
             borderColor={"gray.400"}

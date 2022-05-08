@@ -11,19 +11,16 @@ import {
 } from "native-base";
 import React, { useState } from "react";
 import { TransactionButton } from "../../components/TransactionButton";
+import { useLang } from "../../context/lang";
 
 export const Home = () => {
+  const { isEN } = useLang();
   const [showBRL, setShowBRL] = useState(false);
   return (
     <VStack w="100%" h="100%" safeArea alignItems="center" space={0} pt={6}>
-      <HStack
-        w="100%"
-        justifyContent={"space-between"}
-        alignItems="center"
-        px={6}
-      >
+      <VStack w="100%" px={6} space={1}>
         <Heading color="gray.900" fontSize={32} alignSelf="flex-start">
-          Overview
+          {isEN ? "Overview" : "Visão geral"}
         </Heading>
         <HStack alignItems={"center"} space={0}>
           <Text color={"gray.900"} fontWeight={500} fontSize="md">
@@ -40,10 +37,10 @@ export const Home = () => {
             BRL
           </Text>
         </HStack>
-      </HStack>
+      </VStack>
       <VStack my={10} alignItems="center" space={1}>
         <Heading color={"gray.900"} fontWeight={500}>
-          Total Balance
+          {isEN ? "Total Balance" : "Balanço Total"}
         </Heading>
         <Heading color="gray.900" fontSize={34} letterSpacing={"sm"}>
           {showBRL ? "R$ 1,675.55" : "$329.71"}
@@ -51,7 +48,7 @@ export const Home = () => {
       </VStack>
 
       <HStack w="100%" px={16} justifyContent="space-between">
-        <VStack alignItems={"center"} space={2}>
+        <VStack alignItems={"center"} space={2} w={20}>
           <IconButton
             boxSize={12}
             rounded="full"
@@ -63,10 +60,10 @@ export const Home = () => {
             }}
           />
           <Text color="gray.900" fontWeight={500}>
-            Add
+            {isEN ? "Add" : "Adicionar"}
           </Text>
         </VStack>
-        <VStack alignItems={"center"} space={2}>
+        <VStack alignItems={"center"} space={2} w={20}>
           <IconButton
             boxSize={12}
             rounded="full"
@@ -84,10 +81,10 @@ export const Home = () => {
             }}
           />
           <Text color="gray.900" fontWeight={500}>
-            Withdraw
+            {isEN ? "Withdraw" : "Retirar"}
           </Text>
         </VStack>
-        <VStack alignItems={"center"} space={2}>
+        <VStack alignItems={"center"} space={2} w={20}>
           <IconButton
             boxSize={12}
             rounded="full"
@@ -105,7 +102,7 @@ export const Home = () => {
             }}
           />
           <Text color="gray.900" fontWeight={500}>
-            Send
+            {isEN ? "Send" : "Enviar"}
           </Text>
         </VStack>
       </HStack>

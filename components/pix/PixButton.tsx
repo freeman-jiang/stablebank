@@ -10,8 +10,8 @@ import {
 import React from "react";
 import { Keyboard } from "react-native";
 import Pix from "../../assets/pix.png";
-
 import QRCode from "../../assets/qr-code.png";
+import { useLang } from "../../context/lang";
 import { Currency } from "../../types/international";
 
 interface Props {
@@ -20,6 +20,7 @@ interface Props {
 }
 
 export const PixButton = ({ amount, currency }: Props) => {
+  const { isEN } = useLang();
   const { isOpen, onOpen, onClose } = useDisclose();
 
   return (
@@ -34,7 +35,7 @@ export const PixButton = ({ amount, currency }: Props) => {
             bg: "gray.800",
           }}
           _disabled={{
-            bg: "gray.400",
+            bg: "gray.600",
           }}
           onPress={() => {
             onOpen();
@@ -51,7 +52,7 @@ export const PixButton = ({ amount, currency }: Props) => {
               resizeMode="contain"
             />
             <Text ml={2} fontSize={16} fontWeight={500} color="white">
-              Charge with PIX
+              {isEN ? "Charge with PIX" : "Cobrar com PIX"}
             </Text>
           </HStack>
         </Pressable>
@@ -66,7 +67,9 @@ export const PixButton = ({ amount, currency }: Props) => {
         }}
       >
         <Actionsheet.Content pt={6} bg="white" px={6}>
-          <Heading color="gray.900">Pay with PIX</Heading>
+          <Heading color="gray.900">
+            {isEN ? "Pay with PIX" : "Cobrar com PIX"}
+          </Heading>
           <Text color="gray.600">{`Total: ${amount} ${currency}`}</Text>
           <Image source={QRCode} boxSize={300} alt="PIX QR Code" />
         </Actionsheet.Content>

@@ -16,6 +16,7 @@ import { InterfaceBoxProps } from "native-base/lib/typescript/components/primiti
 import React from "react";
 import { useState } from "react";
 import { LayoutAnimation, ListRenderItem } from "react-native";
+import { useLang } from "../context/lang";
 import { getInitials } from "../utils";
 import { MOCK_DATA } from "../utils/mockData";
 
@@ -65,6 +66,7 @@ const renderItem: ListRenderItem<iTransaction> = ({ index, item }) => (
 export const TransactionButton = (props: InterfaceBoxProps) => {
   const { isOpen, onOpen, onClose } = useDisclose();
   const [expanded, setExpanded] = useState(false);
+  const { isEN } = useLang();
 
   return (
     <Box w="100%" px={6} {...props}>
@@ -76,7 +78,7 @@ export const TransactionButton = (props: InterfaceBoxProps) => {
         onPress={onOpen}
       >
         <Text color="white" fontSize={16} fontWeight={600}>
-          View transactions
+          {isEN ? "View transactions" : "Ver transações"}
         </Text>
       </Button>
       <Actionsheet
@@ -102,7 +104,7 @@ export const TransactionButton = (props: InterfaceBoxProps) => {
               space={4}
             >
               <Heading fontWeight={500} color={"gray.900"} fontSize={23}>
-                Recent Transactions
+                {isEN ? "Recent Transactions" : "Transações recentes"}
               </Heading>
 
               <IconButton

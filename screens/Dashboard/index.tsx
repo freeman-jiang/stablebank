@@ -7,11 +7,7 @@ import { Spend } from "./Spend";
 import { RootStackParamList } from "../../App";
 import { Home } from "./Home";
 import { Icon, StatusBar, Text, VStack } from "native-base";
-import {
-  Entypo,
-  FontAwesome,
-  MaterialCommunityIcons,
-} from "@expo/vector-icons";
+import { FontAwesome, MaterialCommunityIcons } from "@expo/vector-icons";
 import { useLang } from "../../context/lang";
 import { Account } from "./Account";
 
@@ -87,7 +83,7 @@ export const Dashboard = ({ navigation }: Props) => {
                     color={color}
                   />
                   <Text fontWeight={500} color={color}>
-                    Receive
+                    {isEN ? "Receive" : "Receber"}
                   </Text>
                 </VStack>
               );
@@ -127,13 +123,17 @@ export const Dashboard = ({ navigation }: Props) => {
                   <Icon
                     as={
                       // @ts-ignore
-                      <FontAwesome name="user" size={24} color="black" />
+                      <MaterialCommunityIcons
+                        name="account-circle"
+                        size={24}
+                        color="black"
+                      />
                     }
                     size={7}
                     color={color}
                   />
                   <Text fontWeight={500} color={color}>
-                    Account
+                    {isEN ? "Account" : "Conta"}
                   </Text>
                 </VStack>
               );

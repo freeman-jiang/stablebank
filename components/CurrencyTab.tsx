@@ -1,10 +1,12 @@
-import { Divider, Heading, HStack, Text } from "native-base";
+import { HStack, Text } from "native-base";
 import React from "react";
 import { Pressable } from "react-native";
+import { useLang } from "../context/lang";
 import {
   Currency,
   CurrencyFlag,
   CurrencyCountry,
+  PTCurrencyCountry,
 } from "../types/international";
 
 interface Props {
@@ -14,6 +16,7 @@ interface Props {
 }
 
 export const CurrencyTab = ({ currency, setCurrency, onClose }: Props) => {
+  const { isEN } = useLang();
   return (
     <Pressable
       onPress={() => {
@@ -26,15 +29,18 @@ export const CurrencyTab = ({ currency, setCurrency, onClose }: Props) => {
         bg="gray.100"
         w="100%"
         rounded="xl"
-        py={1}
         px={4}
+        py={0.5}
       >
         <HStack space={2} alignItems="center">
           <Text fontSize={30} fontWeight={600} color="black">
             {CurrencyFlag[currency]}
           </Text>
-          <Text ml={2} fontSize={18} fontWeight={600} color="black">
+          <Text fontSize={18} color="gray.800" fontWeight={700}>
             {currency}
+            <Text fontWeight={400}>{` - ${
+              isEN ? CurrencyCountry[currency] : PTCurrencyCountry[currency]
+            }`}</Text>
           </Text>
         </HStack>
       </HStack>
