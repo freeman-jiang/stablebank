@@ -24,8 +24,8 @@ export const SignIn = ({ navigation }: Props) => {
     });
 
   return (
-    <VStack px={6} w="100%" h="100%" bg="gray.800" safeArea py={4}>
-      <StatusBar animated barStyle={"light-content"} />
+    <VStack px={6} w="100%" h="100%" bg="gray.50" safeArea py={4}>
+      <StatusBar animated barStyle={"dark-content"} />
       <HStack>
         <Button
           p={0}
@@ -36,33 +36,33 @@ export const SignIn = ({ navigation }: Props) => {
           }}
         >
           {/* @ts-ignore */}
-          <Entypo name="chevron-left" size={30} color="white" />
+          <Entypo name="chevron-left" size={30} color="black" />
         </Button>
       </HStack>
 
       <Box>
         <VStack pb={"25%"} h="100%" justifyContent={"center"}>
-          <Heading fontSize={30}>
+          <Heading fontSize={30} color="gray.900">
             {isEN
               ? "We've emailed you a magic link!"
               : "Enviamos um link mágico para você!"}
           </Heading>
-          <Text fontSize={18}>
+          <Text fontSize={18} color="gray.900">
             {isEN
               ? "Click the link we sent to sign in."
               : "Clique no link que enviamos para fazer login."}
           </Text>
           <Button
             mt={4}
-            bg="white"
+            bg="black"
             rounded="xl"
             py={4}
             onPress={handlePress}
             _pressed={{
-              bg: "gray.100",
+              bg: "gray.900",
             }}
           >
-            <Text fontWeight={600} color="gray.800">
+            <Text fontWeight={600} color="gray.50">
               {isEN ? "Continue" : "Continuar"}
             </Text>
           </Button>

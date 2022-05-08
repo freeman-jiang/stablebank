@@ -23,29 +23,29 @@ export const Landing = ({ navigation }: Props) => {
 
   return (
     <>
-      <StatusBar animated barStyle={"light-content"} />
+      <StatusBar animated barStyle={"dark-content"} />
       <VStack
         px={6}
         w="100%"
         h="100%"
-        bg="gray.800"
+        bg="gray.50"
         safeArea
         justifyContent={"center"}
       >
         <HStack justifyContent={"space-between"} alignItems="center">
-          <Heading fontSize={35} color="white">
-            Valt.
+          <Heading fontSize={35} color="black">
+            StableBank
           </Heading>
           <Button
-            bg="white"
+            bg="gray.900"
             rounded={"2xl"}
             _pressed={{
-              bg: "gray.100",
+              bg: "gray.700",
             }}
             boxSize={12}
             onPress={() => setIsEN(!isEN)}
           >
-            <Text color={"black"} fontWeight={600}>
+            <Text color={"white"} fontWeight={600}>
               {isEN ? "BR" : "EN"}
             </Text>
           </Button>
@@ -60,11 +60,11 @@ export const Landing = ({ navigation }: Props) => {
           />
         </Center>
         <VStack space={0}>
-          <Heading color="white" fontSize={30}>
-            {isEN ? "Receive" : "Receber"} <Text color="pink.400">USD.</Text>
+          <Heading color="black" fontSize={30}>
+            {isEN ? "Receive" : "Receber"} <Text color="purple.500">USD.</Text>
           </Heading>
-          <Heading color="white" fontSize={30}>
-            {isEN ? "Spend" : "Gastar"} <Text color="green.400">BRL.</Text>
+          <Heading color="black" fontSize={30}>
+            {isEN ? "Spend" : "Gastar"} <Text color="green.500">BRL.</Text>
           </Heading>
         </VStack>
         <HStack
@@ -77,14 +77,14 @@ export const Landing = ({ navigation }: Props) => {
         >
           <Button
             rounded={20}
-            bg="white"
+            bg="gray.900"
             w="60%"
             _pressed={{
-              bg: "gray.100",
+              bg: "gray.700",
             }}
             onPress={() => navigation.navigate("SignIn")}
           >
-            <Text fontSize={18} color="black" fontWeight={600}>
+            <Text fontSize={20} color="gray.50" fontWeight={600}>
               {isEN ? "Sign In" : "Entrar"}
             </Text>
           </Button>
@@ -92,21 +92,21 @@ export const Landing = ({ navigation }: Props) => {
             onPress={() => navigation.navigate("Dashboard")}
             //@ts-ignore
             icon={<FontAwesome name="apple" size={28} color="white" />}
-            bg="gray.700"
+            bg="gray.900"
             w="20%"
             rounded="3xl"
             _pressed={{
-              bg: "gray.600",
+              bg: "gray.700",
             }}
           />
           <Button
             onPress={() => navigation.navigate("Dashboard")}
-            color="white"
-            bg="gray.700"
+            color="black"
+            bg="gray.900"
             w="20%"
             rounded="3xl"
             _pressed={{
-              bg: "gray.600",
+              bg: "gray.700",
             }}
           >
             <Image
