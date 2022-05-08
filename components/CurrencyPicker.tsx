@@ -67,7 +67,7 @@ export const CurrencyPicker = ({ currency, setCurrency }: Props) => {
           bg: "gray.900",
         }}
       >
-        <Actionsheet.Content pt={6} bg="#e8e7e6" px={6}>
+        <Actionsheet.Content py={6} bg="#e8e7e6" px={6}>
           <HStack
             px={1}
             justifyContent={"space-between"}

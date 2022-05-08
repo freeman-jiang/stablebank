@@ -10,12 +10,13 @@ import {
   IconButton,
 } from "native-base";
 import CreditCard from "../assets/graphic.png";
-import { AntDesign, FontAwesome } from "@expo/vector-icons";
+import { FontAwesome } from "@expo/vector-icons";
 import { StatusBar } from "react-native";
 import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../App";
 import { useLang } from "../context/lang";
 import Google from "../assets/google.png";
+import { getScreenHeight } from "../utils";
 type Props = NativeStackScreenProps<RootStackParamList, "Landing">;
 
 export const Landing = ({ navigation }: Props) => {
@@ -30,14 +31,8 @@ export const Landing = ({ navigation }: Props) => {
   return (
     <>
       <StatusBar animated barStyle={"dark-content"} />
-      <VStack
-        px={6}
-        w="100%"
-        h="100%"
-        bg="gray.50"
-        safeArea
-        justifyContent={"center"}
-      >
+
+      <VStack px={6} w="100%" h="100%" bg="gray.50" justifyContent={"center"}>
         <HStack justifyContent={"space-between"} alignItems="center">
           <Heading fontSize={35} color="black">
             StableBank
@@ -48,7 +43,7 @@ export const Landing = ({ navigation }: Props) => {
             _pressed={{
               bg: "gray.700",
             }}
-            boxSize={12}
+            boxSize={52}
             onPress={() => setIsEN(!isEN)}
           >
             <Text color={"white"} fontWeight={600}>
@@ -60,7 +55,7 @@ export const Landing = ({ navigation }: Props) => {
           <Image
             source={CreditCard}
             w={"100%"}
-            h={300}
+            h={getScreenHeight() * 0.38}
             alt="Credit Cards"
             resizeMode="contain"
           />
@@ -123,7 +118,6 @@ export const Landing = ({ navigation }: Props) => {
             />
           </Button>
         </HStack>
-        <HStack mt={8} justifyContent="flex-end"></HStack>
       </VStack>
     </>
   );
