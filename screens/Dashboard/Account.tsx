@@ -25,7 +25,7 @@ type Props = CompositeScreenProps<
 export const Account = ({ navigation }: Props) => {
   const { isEN, setIsEN } = useLang();
   return (
-    <VStack w="100%" h="100%" safeArea alignItems="center" space={0} pt={6}>
+    <VStack w="100%" h="100%" safeArea alignItems="center" space={0} pt={4}>
       <VStack w="100%" h={50} justifyContent="flex-end">
         <Heading
           color="gray.900"
