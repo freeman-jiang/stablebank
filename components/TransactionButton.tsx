@@ -15,7 +15,7 @@ import {
 import { InterfaceBoxProps } from "native-base/lib/typescript/components/primitives/Box";
 import React from "react";
 import { useState } from "react";
-import { ListRenderItem } from "react-native";
+import { LayoutAnimation, ListRenderItem } from "react-native";
 import { getInitials } from "../utils";
 import { MOCK_DATA } from "../utils/mockData";
 
@@ -106,7 +106,16 @@ export const TransactionButton = (props: InterfaceBoxProps) => {
               </Heading>
 
               <IconButton
-                onPress={() => setExpanded(!expanded)}
+                onPress={() => {
+                  // Known problem: animation will cut off bottom of list on shrink so I disabled it
+                  // Solution: Use react-native-bottom-sheet
+                  if (!expanded) {
+                    LayoutAnimation.configureNext(
+                      LayoutAnimation.Presets.easeInEaseOut
+                    );
+                  }
+                  setExpanded(!expanded);
+                }}
                 icon={
                   expanded ? (
                     //@ts-ignore
