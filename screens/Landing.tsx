@@ -20,6 +20,12 @@ type Props = NativeStackScreenProps<RootStackParamList, "Landing">;
 
 export const Landing = ({ navigation }: Props) => {
   const { isEN, setIsEN } = useLang();
+  const handlePress = () => {
+    navigation.reset({
+      index: 0,
+      routes: [{ name: "Dashboard" }],
+    });
+  };
 
   return (
     <>
@@ -89,7 +95,7 @@ export const Landing = ({ navigation }: Props) => {
             </Text>
           </Button>
           <IconButton
-            onPress={() => navigation.navigate("Dashboard")}
+            onPress={handlePress}
             //@ts-ignore
             icon={<FontAwesome name="apple" size={28} color="white" />}
             bg="gray.900"
@@ -100,7 +106,7 @@ export const Landing = ({ navigation }: Props) => {
             }}
           />
           <Button
-            onPress={() => navigation.navigate("Dashboard")}
+            onPress={handlePress}
             color="black"
             bg="gray.900"
             w="20%"
