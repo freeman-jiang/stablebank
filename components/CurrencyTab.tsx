@@ -33,10 +33,10 @@ export const CurrencyTab = ({ currency, setCurrency, onClose }: Props) => {
         py={0.5}
       >
         <HStack space={2} alignItems="center">
-          <Text fontSize={30} fontWeight={600} color="black">
+          <Text fontSize={30} fontWeight={600} color="gray.900">
             {CurrencyFlag[currency]}
           </Text>
-          <Text fontSize={18} color="gray.800" fontWeight={700}>
+          <Text fontSize={18} color="gray.900" fontWeight={700}>
             {currency}
             <Text fontWeight={400}>{` - ${
               isEN ? CurrencyCountry[currency] : PTCurrencyCountry[currency]

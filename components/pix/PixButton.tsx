@@ -27,12 +27,12 @@ export const PixButton = ({ amount, currency }: Props) => {
     <>
       <HStack mt={8}>
         <Pressable
-          bg="gray.900"
+          bg="gray.800"
           w="100%"
           py={4}
           rounded="xl"
           _pressed={{
-            bg: "gray.800",
+            bg: "gray.700",
           }}
           _disabled={{
             bg: "gray.600",
@@ -51,7 +51,7 @@ export const PixButton = ({ amount, currency }: Props) => {
               w={12}
               resizeMode="contain"
             />
-            <Text ml={2} fontSize={16} fontWeight={500} color="white">
+            <Text ml={2} fontSize={16} fontWeight={500} color="gray.50">
               {isEN ? "Charge with PIX" : "Cobrar com PIX"}
             </Text>
           </HStack>

@@ -33,7 +33,7 @@ export const Account = ({ navigation }: Props) => {
         safeArea
         alignItems="center"
         space={0}
-        pt={4}
+        pt={2}
         mx="auto"
       >
         <VStack w="100%" h={50} justifyContent="flex-end">
@@ -145,9 +145,9 @@ export const Account = ({ navigation }: Props) => {
             alignSelf={"flex-end"}
             rounded="full"
             shadow={"1"}
-            bg="gray.900"
+            bg="gray.800"
             _pressed={{
-              bg: "gray.800",
+              bg: "gray.700",
             }}
             rightIcon={
               //@ts-ignore

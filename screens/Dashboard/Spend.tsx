@@ -121,30 +121,6 @@ export const Spend = () => {
                 bg: "gray.800",
               }}
             >
-              <HStack justifyContent={"center"} alignItems="center">
-                <Image
-                  source={Pix}
-                  alt="Pix Logo"
-                  h="100%"
-                  w={12}
-                  resizeMode="contain"
-                />
-                <Text ml={2} fontSize={16} fontWeight={500} color="white">
-                  {isEN ? "Pay with PIX" : "Pagar com PIX"}
-                </Text>
-              </HStack>
-            </Pressable>
-          </HStack>
-          <HStack mx={6}>
-            <Pressable
-              bg="gray.900"
-              w="100%"
-              py={4}
-              rounded="xl"
-              _pressed={{
-                bg: "gray.800",
-              }}
-            >
               <HStack justifyContent={"center"} alignItems="center" space={1}>
                 <Text fontSize={16} fontWeight={600} color="white">
                   {isEN ? "Pay with" : "Pagar com"}
@@ -160,6 +136,30 @@ export const Spend = () => {
                     Pay
                   </Text>
                 </HStack>
+              </HStack>
+            </Pressable>
+          </HStack>
+          <HStack mx={6}>
+            <Pressable
+              bg="gray.900"
+              w="100%"
+              py={4}
+              rounded="xl"
+              _pressed={{
+                bg: "gray.800",
+              }}
+            >
+              <HStack justifyContent={"center"} alignItems="center">
+                <Image
+                  source={Pix}
+                  alt="Pix Logo"
+                  h="100%"
+                  w={12}
+                  resizeMode="contain"
+                />
+                <Text ml={2} fontSize={16} fontWeight={500} color="white">
+                  {isEN ? "Pay with PIX" : "Pagar com PIX"}
+                </Text>
               </HStack>
             </Pressable>
           </HStack>

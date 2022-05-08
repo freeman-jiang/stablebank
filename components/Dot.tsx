@@ -10,7 +10,7 @@ export const Dot = (props: Props) => {
   const { active, ...rest } = props;
   return (
     <Box
-      bg={active ? "gray.800" : "gray.400"}
+      bg={active ? "gray.900" : "gray.400"}
       boxSize={2}
       rounded="full"
       {...rest}

@@ -40,19 +40,19 @@ export const Landing = ({ navigation }: Props) => {
         justifyContent={"center"}
       >
         <HStack justifyContent={"space-between"} alignItems="center">
-          <Heading fontSize={35} color="black">
+          <Heading fontSize={35} color="gray.900">
             StableBank
           </Heading>
           <Button
             bg="gray.900"
             rounded={"2xl"}
             _pressed={{
-              bg: "gray.700",
+              bg: "gray.800",
             }}
             boxSize={52}
             onPress={() => setIsEN(!isEN)}
           >
-            <Text color={"white"} fontWeight={600}>
+            <Text color={"gray.50"} fontWeight={600}>
               {isEN ? "BR" : "EN"}
             </Text>
           </Button>
@@ -67,10 +67,10 @@ export const Landing = ({ navigation }: Props) => {
           />
         </Center>
         <VStack space={0}>
-          <Heading color="black" fontSize={30}>
+          <Heading color="gray.900" fontSize={30}>
             {isEN ? "Receive" : "Receber"} <Text color="purple.500">USD.</Text>
           </Heading>
-          <Heading color="black" fontSize={30}>
+          <Heading color="gray.900" fontSize={30}>
             {isEN ? "Spend" : "Gastar"} <Text color="green.500">BRL.</Text>
           </Heading>
         </VStack>
@@ -87,7 +87,7 @@ export const Landing = ({ navigation }: Props) => {
             bg="gray.900"
             w="60%"
             _pressed={{
-              bg: "gray.700",
+              bg: "gray.800",
             }}
             onPress={() => navigation.navigate("SignIn")}
           >
@@ -103,17 +103,16 @@ export const Landing = ({ navigation }: Props) => {
             w="20%"
             rounded="3xl"
             _pressed={{
-              bg: "gray.700",
+              bg: "gray.800",
             }}
           />
           <Button
             onPress={handlePress}
-            color="black"
             bg="gray.900"
             w="20%"
             rounded="3xl"
             _pressed={{
-              bg: "gray.700",
+              bg: "gray.800",
             }}
           >
             <Image

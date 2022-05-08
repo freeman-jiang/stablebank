@@ -50,16 +50,16 @@ export const SignIn = ({ navigation }: Props) => {
           <Text fontSize={18} color="gray.900">
             {isEN
               ? "Click the link we sent to your email to sign in."
-              : "Clique no link que enviamos para fazer login."}
+              : "Clique no link que enviamos para seu e-mail para fazer login."}
           </Text>
           <Button
             mt={4}
-            bg="black"
+            bg="gray.900"
             rounded="xl"
             py={4}
             onPress={handlePress}
             _pressed={{
-              bg: "gray.900",
+              bg: "gray.800",
             }}
           >
             <Text fontWeight={600} color="gray.50">
