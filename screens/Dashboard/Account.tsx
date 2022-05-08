@@ -40,7 +40,7 @@ export const Account = ({ navigation }: Props) => {
         <Heading color="gray.900" fontWeight={500} fontSize="xl">
           {isEN ? "Language:" : "Língua:"}
         </Heading>
-        <VStack space={2} mt={2}>
+        <VStack space={3} mt={2}>
           <Pressable
             rounded="xl"
             onPress={() => setIsEN(true)}
@@ -123,28 +123,27 @@ export const Account = ({ navigation }: Props) => {
               </PresenceTransition>
             </HStack>
           </Pressable>
+          <Button
+            onPress={() => navigation.navigate("Landing")}
+            px={6}
+            py={3}
+            alignSelf={"flex-end"}
+            rounded="full"
+            shadow={"1"}
+            bg="gray.50"
+            _pressed={{
+              bg: "gray.100",
+            }}
+            rightIcon={
+              //@ts-ignore
+              <AntDesign name="logout" size={22} color="black" />
+            }
+          >
+            <Text mr={1} fontWeight={500} color="gray.900">
+              {isEN ? "Sign out" : "Sair"}
+            </Text>
+          </Button>
         </VStack>
-        <Button
-          onPress={() => navigation.navigate("Landing")}
-          px={6}
-          py={3}
-          mt={2}
-          alignSelf={"flex-end"}
-          rounded="full"
-          shadow={"1"}
-          bg="gray.50"
-          _pressed={{
-            bg: "gray.100",
-          }}
-          rightIcon={
-            //@ts-ignore
-            <AntDesign name="logout" size={22} color="black" />
-          }
-        >
-          <Text mr={1} fontWeight={500} color="gray.900">
-            {isEN ? "Sign out" : "Sair"}
-          </Text>
-        </Button>
       </VStack>
     </VStack>
   );
