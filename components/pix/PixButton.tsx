@@ -11,8 +11,10 @@ import React from "react";
 import { Keyboard } from "react-native";
 import Pix from "../../assets/pix.png";
 import QRCode from "../../assets/qr-code.png";
+import { useBalance } from "../../context/balance";
 import { useLang } from "../../context/lang";
 import { Currency } from "../../types/international";
+import { calculateUSDValue } from "../../utils";
 
 interface Props {
   currency: Currency;
@@ -21,6 +23,7 @@ interface Props {
 
 export const PixButton = ({ amount, currency }: Props) => {
   const { isEN } = useLang();
+  const { balance, setBalance } = useBalance();
   const { isOpen, onOpen, onClose } = useDisclose();
 
   return (
@@ -38,8 +41,11 @@ export const PixButton = ({ amount, currency }: Props) => {
             bg: "gray.600",
           }}
           onPress={() => {
-            onOpen();
             Keyboard.dismiss();
+            onOpen();
+            setBalance(
+              balance + calculateUSDValue(parseFloat(amount), currency)
+            );
           }}
           isDisabled={!amount || amount === "0"}
         >

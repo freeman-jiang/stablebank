@@ -12,14 +12,14 @@ import {
 } from "native-base";
 import React, { useState } from "react";
 import { TransactionButton } from "../../components/TransactionButton";
+import { useBalance } from "../../context/balance";
 import { useLang } from "../../context/lang";
-
-const exchangeRateUSDtoBRL = 5.08; // May 8, 9:18 AM UTC
-const balanceUSD = Math.random() * 1000; // Random number between 0 and 1000
-const balanceBRL = balanceUSD * exchangeRateUSDtoBRL;
+import { convertUSDtoBRL } from "../../utils";
 
 export const Home = () => {
   const { isEN } = useLang();
+  const { balance } = useBalance();
+
   const [showBRL, setShowBRL] = useState(false);
   return (
     <ScrollView>
@@ -38,7 +38,7 @@ export const Home = () => {
           </Heading>
           <HStack alignItems={"center"} space={0}>
             <Text color={"gray.900"} fontWeight={500} fontSize="md">
-              USD
+              USDC
             </Text>
             <Switch
               size="sm"
@@ -58,8 +58,8 @@ export const Home = () => {
           </Heading>
           <Heading color="gray.900" fontSize={34} letterSpacing={"sm"}>
             {showBRL
-              ? `R$ ${balanceBRL.toFixed(2)}`
-              : `$ ${balanceUSD.toFixed(2)}`}
+              ? `R$ ${convertUSDtoBRL(balance).toFixed(2)}`
+              : `$ ${balance.toFixed(2)}`}
           </Heading>
         </VStack>
         <HStack w="100%" justifyContent="center" space={3}>
