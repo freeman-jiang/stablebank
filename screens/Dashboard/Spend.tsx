@@ -1,5 +1,4 @@
 import {
-  Actionsheet,
   Box,
   FlatList,
   Heading,
@@ -9,24 +8,20 @@ import {
   Pressable,
   ScrollView,
   Text,
-  useDisclose,
   VStack,
 } from "native-base";
 import React, { useRef, useState } from "react";
 import { ListRenderItem, ViewToken } from "react-native";
-import { BarCodeScanningResult, Camera, CameraType } from "expo-camera";
-import * as Linking from "expo-linking";
 
 import Card1 from "../../assets/card-1.png";
 import Card2 from "../../assets/card-2.png";
 
-import Pix from "../../assets/pix.png";
 import AppleWalletLogo from "../../assets/apple-wallet.png";
 import { Dot } from "../../components/Dot";
 import { AntDesign } from "@expo/vector-icons";
 import { useLang } from "../../context/lang";
 import { getScreenWidth } from "../../utils";
-import { BarCodeScanner } from "expo-barcode-scanner";
+import { PixCameraButton } from "../../components/pix/PixCameraButton";
 
 const Cards = [Card1, Card2];
 const screenWidth = getScreenWidth();
@@ -51,30 +46,12 @@ export const Spend = () => {
       resizeMode="contain"
     />
   );
-  const [scanned, setScanned] = useState(false);
-  const { isOpen, onOpen, onClose } = useDisclose();
 
   const onViewableItemsChanged = useRef(
     ({ viewableItems }: onViewableItemsChangedProps) => {
       setActiveIndex(viewableItems[0].index!);
     }
   );
-
-  const handlePress = async () => {
-    const { status } = await Camera.requestCameraPermissionsAsync();
-    setScanned(false);
-    onOpen();
-  };
-
-  const handleBarCodeScanned = ({ type, data }: BarCodeScanningResult) => {
-    setScanned(true);
-    onClose();
-    if (type === "org.iso.QRCode") {
-      Linking.openURL(data);
-    } else {
-      alert("Cannot read QR Code format");
-    }
-  };
 
   return (
     <ScrollView>
@@ -161,51 +138,7 @@ export const Spend = () => {
               </HStack>
             </Pressable>
           </HStack>
-          <HStack mx={6}>
-            <Pressable
-              bg="gray.900"
-              w="100%"
-              py={4}
-              rounded="xl"
-              _pressed={{
-                bg: "gray.800",
-              }}
-              onPress={handlePress}
-            >
-              <HStack justifyContent={"center"} alignItems="center">
-                <Image
-                  source={Pix}
-                  alt="Pix Logo"
-                  h="100%"
-                  w={12}
-                  resizeMode="contain"
-                />
-                <Text ml={2} fontSize={16} fontWeight={500} color="white">
-                  {isEN ? "Pay with PIX" : "Pagar com PIX"}
-                </Text>
-              </HStack>
-            </Pressable>
-          </HStack>
-          <Actionsheet
-            isOpen={isOpen}
-            onClose={onClose}
-            _backdrop={{
-              bg: "gray.900",
-            }}
-          >
-            <Actionsheet.Content h={600} pt={4} bg="white" px={6}>
-              <BarCodeScanner
-                onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
-                style={{
-                  flex: 1,
-                  width: "100%",
-                  height: "100%",
-                  borderRadius: 30,
-                }}
-                type={CameraType.back}
-              />
-            </Actionsheet.Content>
-          </Actionsheet>
+          <PixCameraButton />
         </VStack>
       </VStack>
     </ScrollView>
