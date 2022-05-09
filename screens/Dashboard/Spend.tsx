@@ -19,7 +19,6 @@ import * as Linking from "expo-linking";
 
 import Card1 from "../../assets/card-1.png";
 import Card2 from "../../assets/card-2.png";
-import Card3 from "../../assets/card-3.png";
 
 import Pix from "../../assets/pix.png";
 import AppleWalletLogo from "../../assets/apple-wallet.png";
@@ -29,7 +28,7 @@ import { useLang } from "../../context/lang";
 import { getScreenWidth } from "../../utils";
 import { BarCodeScanner } from "expo-barcode-scanner";
 
-const Cards = [Card1, Card2, Card3];
+const Cards = [Card1, Card2];
 const screenWidth = getScreenWidth();
 
 interface onViewableItemsChangedProps {
